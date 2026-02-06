@@ -52,22 +52,22 @@
             background-position: center;
 
             &.Torre{
-                background-image: url("/images/Torre-negra.png");
+                background-image: url("./images/Torre-negra.png");
             }
             &.Caballo{
-                background-image: url("/images/Caballo-negro.png");
+                background-image: url("./images/Caballo-negro.png");
             }
             &.Alfil{
-                background-image: url("/images/Alfil-negro.png");
+                background-image: url("./images/Alfil-negro.png");
             }
             &.Rey{
-                background-image: url("/images/Rey-negro.png");
+                background-image: url("./images/Rey-negro.png");
             }
             &.Reyna{
-                background-image: url("/images/Reyna-negra.png");
+                background-image: url("./images/Reyna-negra.png");
             }
             &.Peon{
-                background-image: url("/images/Peon-negro.png");
+                background-image: url("./images/Peon-negro.png");
             }
         }
         .primer-jugador{
@@ -76,22 +76,22 @@
             background-position: center;
 
             &.Torre{
-                background-image: url("/images/Torre-Blanca.png");
+                background-image: url("./images/Torre-Blanca.png");
             }
             &.Caballo{
-                background-image: url("/images/Caballo-Blanco.png");
+                background-image: url("./images/Caballo-Blanco.png");
             }
             &.Alfil{
-                background-image: url("/images/Alfil-Blanco.png");
+                background-image: url("./images/Alfil-Blanco.png");
             }
             &.Rey{
-                background-image: url("/images/Rey-Blanco.png");
+                background-image: url("./images/Rey-Blanco.png");
             }
             &.Reyna{
-                background-image: url("/images/Reyna-Blanca.png");
+                background-image: url("./images/Reyna-Blanca.png");
             }
             &.Peon{
-                background-image: url("/images/Peon-Blanco.png");
+                background-image: url("./images/Peon-Blanco.png");
             }
         }
         .accesible{
