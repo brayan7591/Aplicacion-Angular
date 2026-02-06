@@ -1,0 +1,25 @@
+<h1>Ajedrez (Segunda Version)</h1>
+<div class="juego">
+    <div class="tablero">
+        @for (filas of tablero; track $index; let IndexFila = $index) {
+            <div class="fila">
+                @for (columnas of filas; track $index; let IndexColumna = $index) {
+                    <div class="columna {{ columnas.colorTablero }} {{ columnas.Ficha }} {{ columnas.Jugador }} {{ columnas.hackeMate ? 'HackeMate' : ''}} {{comprobar(columnas.Jugador, IndexFila, IndexColumna) ? 'accesible' : ''}}" (click)="posiblesMovimientos(columnas.Jugador, IndexFila, IndexColumna)">
+                        @if (columnas.Activo) { 
+                            <div class="capa"></div> 
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="jugador">
+        <p>El turno actual es de las fichas: {{jugadorActual == "primer-jugador" ? "Blancas" : "Negras"}}</p>
+        @if (gameOver) {
+            <p>El juego esta terminado</p>
+        }
+        @if (ganador) {
+            <p>Las fichas {{ganador}} han ganado</p>
+        }
+    </div>
+</div>

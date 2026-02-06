@@ -1,0 +1,104 @@
+.juego{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.jugador{
+    text-align: center;
+}
+.tablero{
+    width: 435px;
+    background-color: maroon;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    .fila{
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+
+        .negro {
+            background-color: black;
+        }
+
+        .blanco {
+            background-color: white;
+            color: black;
+        }
+
+        .columna{
+            width: 100%;
+        }
+
+        .HackeMate {
+            background-color: rgb(255, 0, 0);
+        }
+        .capa{
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            opacity: .5;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        .segundo-jugador{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &.Torre{
+                background-image: url("/images/Torre-negra.png");
+            }
+            &.Caballo{
+                background-image: url("/images/Caballo-negro.png");
+            }
+            &.Alfil{
+                background-image: url("/images/Alfil-negro.png");
+            }
+            &.Rey{
+                background-image: url("/images/Rey-negro.png");
+            }
+            &.Reyna{
+                background-image: url("/images/Reyna-negra.png");
+            }
+            &.Peon{
+                background-image: url("/images/Peon-negro.png");
+            }
+        }
+        .primer-jugador{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &.Torre{
+                background-image: url("/images/Torre-Blanca.png");
+            }
+            &.Caballo{
+                background-image: url("/images/Caballo-Blanco.png");
+            }
+            &.Alfil{
+                background-image: url("/images/Alfil-Blanco.png");
+            }
+            &.Rey{
+                background-image: url("/images/Rey-Blanco.png");
+            }
+            &.Reyna{
+                background-image: url("/images/Reyna-Blanca.png");
+            }
+            &.Peon{
+                background-image: url("/images/Peon-Blanco.png");
+            }
+        }
+        .accesible{
+            cursor: pointer;
+            &:hover{
+                background-color: green;
+            }
+        }
+    }
+}

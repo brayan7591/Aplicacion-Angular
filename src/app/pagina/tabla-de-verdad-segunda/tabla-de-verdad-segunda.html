@@ -1,0 +1,28 @@
+<h1>Tabla de verdad Segundo (Esta es la segunda version :v)</h1>
+<p>Esta nueva version contiene los operadores de Conjunción && (^) y de Disyunción || (v) de todos los elementos que usualmente tienen las tablas de verdad para comprobar si es verdad o no.</p>
+<input (change)="crearArray($event)"  type="number" placeholder="Escribe un numero" min="1" max="10">
+
+@if (numero > 0) {
+    @if (arrayCompleto != []) {
+        <table>
+            <colgroup>
+                <col span="{{numero}}" style="background-color:red">
+                <col span="2" style="background-color:blue">
+            </colgroup>
+            <thead>
+                <tr>
+                    @for (columnas of arrayColumnas; track $index) { <th>Columna {{$index+1}}</th> }
+                    <th>Operador ^</th>
+                    <th>Operador v</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (filas of arrayCompleto; track $index) {
+                    <tr>
+                        @for (valor of filas; track $index) { <th>{{valor}}</th> }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

@@ -1,0 +1,23 @@
+<h1>Ajedrez (Primera Version)</h1>
+<p>Esta es la primera version donde las piezas se pueden mover de manera correcta, a la vez tambien sirven los turnos, que primero va el jugador uno y luego el segundo</p>
+<p>Sin embargo, no se puede ganar ni perder el juego, ya que continua hasta que no alla ninguna pieza, los peones tampoco se coronan al llegar al final.</p>
+<p>Primer Jugador (Blancas), Segundo Jugador (Negras)</p>
+<div class="juego">
+    <div class="tablero">
+        @for (filas of tablero; track $index; let IndexFila = $index) {
+            <div class="fila">
+                @for (columnas of filas; track $index; let IndexColumna = $index) {
+                    <div class="columna {{ columnas.colorTablero }} {{ columnas.Ficha }} {{ columnas.Jugador }} {{columnas.Jugador == jugadorActual ? 'accesible' : ''}}" (click)="posiblesMovimientos(IndexFila, IndexColumna, columnas.Ficha, columnas.Jugador)">
+                        @if (columnas.Activo) { 
+                            <div class="capa"></div> 
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="jugador">
+        <p>El turno actual es del: </p>
+        <p>{{jugadorActual}}</p>
+    </div>
+</div>

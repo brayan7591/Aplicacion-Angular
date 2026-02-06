@@ -1,0 +1,28 @@
+<h1>Tabla de verdad Primera (Esta fue la primera version :v)</h1>
+<p>Esta es una prueba para tablas de la verdad mediante la cual se pueden generar todas las posibles combinaciones, a continuación se tendra un formulario donde solo tienes que digitar cuantos campos vamos a tener, he de recordar que debe ser mayor o igual a 1, no debes poner un numero mayor a 10 porque se puede quedar procesando hasta que termine y eso es feo :( </p>
+<p>Si escribes un numero debes dar enter para confirmarlo, en caso contrario puedes utilizar las flechitas a la derecha del input o del propio teclado :)</p>
+<input (change)="crearArrays($event)" type="number" placeholder="Escribe un numero" min="1" max="10">
+
+@if (isLoading()) { <div class="Cargando">Cargando <div></div></div> }
+
+@if (data$ | async) {
+    @if (num >= 1 && num < 11) {
+        <table>
+            <thead>
+                <tr>
+                    @for (numero of arraycompleto; track $index) { <th>{{$index+1}}</th> }
+                </tr>
+            </thead>
+            <tbody>
+                @for (columnas of arraycompleto[0]; track $index; let fila = $index) {
+                    <tr>
+                        @for (numero of arraycompleto; track $index; let columna = $index) { <td>{{arraycompleto[columna][fila]}}</td> }
+                    </tr>
+                }
+        </tbody>
+    </table>
+    }
+    @if (error != "") { <div class="error">{{ error }} <div></div></div> }
+}
+
+

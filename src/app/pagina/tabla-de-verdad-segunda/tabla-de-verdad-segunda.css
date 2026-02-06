@@ -1,0 +1,15 @@
+input{
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    th, td, tr{
+        border: solid 1px;
+    }
+    td, th{
+        padding: 5px;
+    }
+}
