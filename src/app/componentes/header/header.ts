@@ -1,42 +1,70 @@
 import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Modal } from '../modal/modal';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive, Modal],
   template: `
     <nav>
       <ul>
-          <a routerLink=""><li>inicio</li></a>
-          <a routerLink="Tabla-de-verdad-primera"><li>Tabla de verdad 1</li></a>
-          <a routerLink="Tabla-de-verdad-segunda"><li>Tabla de verdad 2</li></a>
-          <a routerLink="Ajedrez"><li>Ajedrez (primera version)</li></a>
-          <a routerLink="Ajedrez-segundo"><li>Ajedrez (Segunda version)</li></a>
+          <a routerLink="" routerLinkActive="Activo" [routerLinkActiveOptions]="{exact: true}"><li>inicio</li></a>
+          <a routerLink="Tabla-de-verdad-primera" routerLinkActive="Activo"><li>Tabla de verdad 1</li></a>
+          <a routerLink="Tabla-de-verdad-segunda" routerLinkActive="Activo"><li>Tabla de verdad 2</li></a>
+          <a routerLink="Ajedrez" routerLinkActive="Activo"><li>Ajedrez (primera version)</li></a>
+          <a routerLink="Ajedrez-segundo" routerLinkActive="Activo"><li>Ajedrez (Segunda version)</li></a>
+          <button command="show-modal" commandfor="modal_ajustes" title="Ajustes"><img src="/images/Engranaje.png" alt="Ajustes"></button>
       </ul>
     </nav>
+    <app-modal></app-modal>
   `,
   styles: `
     nav{
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
+      overflow-x: auto;
+      scrollbar-width: none;
       ul{
+        min-width: max-content;
         display: flex;
+        border-collapse: collapse;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-        gap: 6px;
         margin: 0;
         padding: 0;
+        width: 100%;
+        button{
+          padding: 10px;
+          font-size: 1.4rem;
+          background-color: blue;
+          cursor: pointer;
+          border: solid 1px black;
+          margin-left: auto;
+          &:hover{
+            background-color: rgb(112, 120, 231);
+          }
+          img{
+            height: 1.4rem;
+            width: auto;
+            display: block;
+          }
+        }
         a{
           list-style: none;
-          font-size: 15px;
-          background-color: blue;
+          font-size: 1.4rem;
+          background-color: var(--color-secundario);
+          border: solid 1px black;
           padding: 10px;
           text-decoration: none;
-          color: white;
+          text-align: center;
+          color: gray;
           &:hover{
-            background-color: darkblue;
+            background-color: var(--color-principal);
+            color: white;
+          }
+          &.Activo{
+            background-color: var(--color-principal);
+            color: white;
+            cursor: default;
+            pointer-events: none;
           }
         }
       }

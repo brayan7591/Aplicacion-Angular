@@ -1,0 +1,30 @@
+<dialog id="modal_ajustes">
+    <h1>Ajustes generales de la pagina</h1>
+    <h2>Ajustes de color:</h2>
+    <label>
+        <p>Selecciona el color de fondo de la pagina:</p>
+        <input type="color" value="{{ColorFondoInput}}" (change)="cambiarColor('fondo', $event)">
+    </label>
+    <label>
+        <p>Selecciona el color principal de la pagina:</p>
+        <input type="color" value="{{ColorPrincipalInput}}" (change)="cambiarColor('principal', $event)">
+    </label>
+    <label>
+        <p>Selecciona el color secundario de la pagina:</p>
+        <input type="color" value="{{ColorSecundarioInput}}" (change)="cambiarColor('secundario', $event)">
+    </label>
+    <label>
+        <p>Selecciona el color de los titulos:</p>
+        <input type="color" value="{{ColorTitulosInput}}" (change)="cambiarColor('titulos', $event)">
+    </label>
+    <label>
+        <p>Selecciona el color de los subtitulos:</p>
+        <input type="color" value="{{ColorSubtitulosInput}}" (change)="cambiarColor('subtitulos', $event)">
+    </label>
+
+    <div>
+        <button commandfor="modal_ajustes" command="close" (click)="resetearColores()">resetear</button>
+        <button commandfor="modal_ajustes" command="close">Cerrar</button>
+    </div>
+    
+</dialog>

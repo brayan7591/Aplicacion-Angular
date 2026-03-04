@@ -1,5 +1,17 @@
 <h1>Ajedrez (Segunda Version)</h1>
 <p>Esta es la segunda version donde las piezas se pueden mover de manera correcta, se puede dar hacke, se puede hacer enroque, se puede ganar y se puede ahogar al rey.</p>
+<br>
+<div class="jugador">
+    @if (gameOver) {
+        <p>El juego esta terminado</p>
+    }
+    @if (ganador) {
+        <p>Las fichas {{ganador}} han ganado</p>
+    }
+    @if (!gameOver) {
+        <p>El turno actual es de las fichas: {{jugadorActual == "primer-jugador" ? "Blancas" : "Negras"}}</p>
+    }
+</div>
 <div class="juego">
     <div class="tablero">
         @for (filas of tablero; track $index; let IndexFila = $index) {
@@ -14,13 +26,6 @@
             </div>
         }
     </div>
-    <div class="jugador">
-        <p>El turno actual es de las fichas: {{jugadorActual == "primer-jugador" ? "Blancas" : "Negras"}}</p>
-        @if (gameOver) {
-            <p>El juego esta terminado</p>
-        }
-        @if (ganador) {
-            <p>Las fichas {{ganador}} han ganado</p>
-        }
-    </div>
+
 </div>
+
