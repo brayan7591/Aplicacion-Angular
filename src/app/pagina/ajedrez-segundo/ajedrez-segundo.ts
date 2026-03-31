@@ -181,7 +181,6 @@ export class AjedrezSegundo {
 
   //Funcion utilizada para poder mover la pieza ya seleccionada a una nueva posicion
   moverPieza(fila: number, columna: number){
-
     let ficha = this.fichaSeleccionada
     let nuevaFicha = this.tablero[ficha.fila][ficha.columna].Ficha
 
@@ -436,6 +435,7 @@ export class AjedrezSegundo {
                 if (this.tablero[movimiento2.fila][movimiento2.columna].Ficha && this.tablero[movimiento2.fila][movimiento2.columna].Jugador != fichaTablero.Jugador) {
                   if (this.tablero[movimiento2.fila][movimiento2.columna].Ficha == "Rey") {
                     this.fichasBloqueadas.push(posibleFichaBloqueada)
+                    console.log(posibleFichaBloqueada)
                   }
                   break;
                 }
@@ -550,7 +550,7 @@ export class AjedrezSegundo {
         let nuevosMovimientos : any = [];
         let movimientos = this.tablero[FichaBloqueada.fila][FichaBloqueada.columna].Movimientos
         for (let movimiento of movimientos) {
-          if ((FichaBloqueada.movimientos.some((p:any) => p.fila == movimiento.fila && p.columna == movimiento.columna)) || (FichaBloqueada.fichaHackeFila == movimiento.fila, FichaBloqueada.fichaHackeColumna == movimiento.columna)) {
+          if ((FichaBloqueada.movimientos.some((p:any) => p.fila == movimiento.fila && p.columna == movimiento.columna)) || (FichaBloqueada.fichaHackeFila == movimiento.fila && FichaBloqueada.fichaHackeColumna == movimiento.columna)) {
             nuevosMovimientos.push({fila: movimiento.fila, columna: movimiento.columna})
           }
         }

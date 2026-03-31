@@ -1,1 +1,13 @@
-<h1>Este es el inicio XD</h1>
+<h1>Juego Tres En Raya</h1>
+<p>Bienvenidos a este juego de tres en raya donde el objetivo es tener tres cuadros consecutivos ya sea de manera vertical, horizontal o diagonal la misma letra (X, O) </p>
+
+<div class="juego">
+    @for (filas of tablero; track $index; let IndexFila = $index) {
+        <div class="columnas">
+            @for (columnas of filas; track $index; let IndexColumna = $index) {
+                <div class="{{tablero[IndexFila][IndexColumna] || ganador ? '' : 'disponible'}}" (click)="Digitalizar(IndexFila, IndexColumna)">{{tablero[IndexFila][IndexColumna]}}</div>
+            }
+        </div>
+    }
+    @if (ganador) {<p>Ha ganado la {{ganador}}</p> <button (click)="reiniciar()">Reiniciar</button> }
+</div>

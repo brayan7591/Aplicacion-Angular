@@ -13,26 +13,28 @@ export class TablaDeVerdadSegunda {
   arrayColumnas : string[] = []
 
   crearArray(evento: any){
-    this.arrayCompleto = []
     this.numero = +evento.srcElement.value
-    this.arrayColumnas = Array(this.numero);
-    for (let indexPrimero = 0; indexPrimero < 2**this.numero; indexPrimero++) {
-      let columnas : string[] = []
-      let numerodivisible = 0
-      for (let indexSegundo = 0; indexSegundo < this.numero; indexSegundo++) {
-        numerodivisible = (2**this.numero/(2**(indexSegundo+1)))
-        if (indexPrimero == 0) { 
-          columnas.push(this.comenzarCon)
-        }else{
-          let dato = this.arrayCompleto[indexPrimero-1][indexSegundo]
-          if (indexPrimero % numerodivisible == 0) { dato == "V" ? dato = "F" : dato = "V" }
-          columnas.push(dato)
+    if (this.numero > 0 && this.numero <= 10) {
+      this.arrayCompleto = []
+      this.arrayColumnas = Array(this.numero);
+      for (let indexPrimero = 0; indexPrimero < 2**this.numero; indexPrimero++) {
+        let columnas : string[] = []
+        let numerodivisible = 0
+        for (let indexSegundo = 0; indexSegundo < this.numero; indexSegundo++) {
+          numerodivisible = (2**this.numero/(2**(indexSegundo+1)))
+          if (indexPrimero == 0) { 
+            columnas.push(this.comenzarCon)
+          }else{
+            let dato = this.arrayCompleto[indexPrimero-1][indexSegundo]
+            if (indexPrimero % numerodivisible == 0) { dato == "V" ? dato = "F" : dato = "V" }
+            columnas.push(dato)
+          }
         }
+        let datosActuales : string[] = columnas;
+        columnas.push(this.operacion(datosActuales, "&"))
+        columnas.push(this.operacion(datosActuales, "|"))
+        this.arrayCompleto.push(columnas);
       }
-      let datosActuales : string[] = columnas;
-      columnas.push(this.operacion(datosActuales, "&"))
-      columnas.push(this.operacion(datosActuales, "|"))
-      this.arrayCompleto.push(columnas);
     }
   }
 
